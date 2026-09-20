@@ -24,16 +24,8 @@ AI-Navajeevan is an internship-submission-ready full-stack healthcare innovation
 ## Architecture
 
 ```text
-frontend/                   React + Vite application
-  src/
-    api/                    Typed fetch client
-    components/             Layout and reusable UI
-    data/                   Research, proposal and demo content
-    pages/                  All required product experiences
-    utils/                  Formatting helpers
-    App.jsx                 Route map
-    main.jsx                Browser entry point
-    index.css               Design system and core styles
+app/                        Next.js application
+components/, lib/, stores/  Shared UI, data, and state modules
 
 backend/                    FastAPI application
   ml_models/                Training/loading service + generated .joblib files
@@ -109,13 +101,13 @@ You can also run `python test_api.py` through pytest-compatible tooling or exerc
 
 ## Deployment
 
-### Frontend on Vercel
+### Next.js application on Vercel
 
 1. Import the repository in Vercel.
-2. Set **Root Directory** to `frontend`.
-3. Use build command `npm run build` and output directory `dist`.
-4. Add `VITE_API_URL=https://your-render-service.onrender.com/api`.
-5. Deploy, then add the final Vercel origin to `FRONTEND_ORIGINS` on Render.
+2. Keep **Root Directory** at the repository root (`.`).
+3. Use the build command `npm run build`; Next.js manages the output directory.
+4. Add `GEMINI_API_KEY` as a server-side environment variable when AI features are enabled.
+5. Deploy, then add the final Vercel origin to `FRONTEND_ORIGINS` on Render if the backend is used.
 
 ### Backend on Render
 

@@ -6,9 +6,7 @@ import { useSettingsStore } from "@/stores/settingsStore";
 
 export function ThemeSync() {
   const theme = useSettingsStore((state) => state.settings.theme);
-  const [isHydrated, setIsHydrated] = useState(() =>
-    useSettingsStore.persist.hasHydrated(),
-  );
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
     const removeStartListener = useSettingsStore.persist.onHydrate(() =>
