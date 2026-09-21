@@ -106,15 +106,15 @@ You can also run `python test_api.py` through pytest-compatible tooling or exerc
 1. Import the repository in Vercel.
 2. Keep **Root Directory** at the repository root (`.`).
 3. Use the build command `npm run build`; Next.js manages the output directory.
-4. Add `GEMINI_API_KEY` as a server-side environment variable when AI features are enabled.
-5. Deploy, then add the final Vercel origin to `FRONTEND_ORIGINS` on Render if the backend is used.
+4. Add `NEXT_PUBLIC_API_URL=https://your-render-service.onrender.com`.
+5. Add `GEMINI_API_KEY` as a server-side environment variable when AI features are enabled.
 
 ### Backend on Render
 
 1. Create a Python web service with **Root Directory** `backend`.
 2. Build command: `pip install -r requirements.txt`.
 3. Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`.
-4. Set `APP_ENV=production` and `FRONTEND_ORIGINS=https://your-app.vercel.app`.
+4. Set `FRONTEND_URLS=https://your-app.vercel.app`.
 5. For persistent SQLite data, attach a Render disk and set `DATABASE_PATH` to its mounted path. For a production clinical system, migrate to a managed encrypted database.
 
 ## Screenshots
